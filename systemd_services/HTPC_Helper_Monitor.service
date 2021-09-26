@@ -1,0 +1,13 @@
+[Unit]
+Description=On Boot
+After=multi-user.target
+
+[Service]
+Type=simple
+User=deskwizard
+KillSignal=SIGINT
+ExecStartPre=/bin/stty -F /dev/ttyACM0 115200
+ExecStart=/home/deskwizard/Scripts/HTPC_Monitor.py
+
+[Install]
+WantedBy=multi-user.target

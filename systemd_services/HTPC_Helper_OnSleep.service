@@ -1,0 +1,11 @@
+[Unit]
+Description=Before Suspend
+Before=suspend.target
+
+[Service]
+Type=oneshot
+ExecStart=/bin/bash -c '/bin/echo -en s > /dev/ttyACM0'
+ExecStart=/bin/systemctl stop HTPC_Helper_Monitor.service
+
+[Install]
+WantedBy=suspend.target

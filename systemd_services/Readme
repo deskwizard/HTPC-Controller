@@ -1,0 +1,19 @@
+
+Copy python script to desired folder,
+
+Edit HTPC_Monitor.service to set the script path and username it will be running as.
+
+*** Note: wrote assuming only one user, always logged in. **
+
+Device path is hardcoded for /dev/ttyACM0, you can change that value, but ... everywhere really.
+
+
+Services (roughly...)
+
+cp *.service /etc/systemd/system
+
+chmod +x HTPC*
+systemctl enable HTPC*
+systemctl start HTPC_Monitor.service
+
+No need to start OnWake and OnSleep, they get call when these events happen if they are enabled.

@@ -1,0 +1,10 @@
+[Unit]
+Description=On Resume
+After=suspend.target
+
+[Service]
+Type=oneshot
+ExecStart=/bin/systemctl start HTPC_Helper_Monitor.service
+
+[Install]
+WantedBy=suspend.target
